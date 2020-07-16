@@ -48,3 +48,9 @@ environments:
     routes:
         - varnish:
             - "drupal-example.amazee.io"
+  develop:
+    cronjobs:
+     - name: drush cron
+       schedule: "H * * * *" # This will run the cron once per hour.
+       command: drush cron
+       service: cli
