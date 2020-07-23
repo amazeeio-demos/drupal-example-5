@@ -18,7 +18,7 @@ tasks:
         name: IF no Drupal installed & Pullrequest = Sync database from staging
         command: |
             if [[ -n ${LAGOON_PR_BASE_BRANCH} ]] && tables=$(drush sqlq 'show tables;') && [ -z "$tables" ]; then
-                drush -y sql-sync @master default
+                drush -y sql-sync @master default  --local
             fi
         service: cli
         shell: bash
